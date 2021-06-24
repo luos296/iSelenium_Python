@@ -31,6 +31,8 @@ class ISelenium(unittest.TestCase):
             print('没有配置环境变量 using_headless, 按照有界面方式运行自动化测试')
 
         chrome_options = Options()
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('–incognito')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument("window-size=1024,768")
         chrome_options.add_argument('--no-sandbox')
