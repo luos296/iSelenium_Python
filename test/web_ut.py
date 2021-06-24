@@ -15,7 +15,6 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
-        print(config.get('driver', 'chrome_driver'))
         return config
 
     def tearDown(self):
@@ -23,6 +22,7 @@ class ISelenium(unittest.TestCase):
 
     def setUp(self):
         config = self.get_config()
+        print(config.get('driver', 'chrome_driver'))
 
         # 控制是否采用无界面形式运行自动化测试
         try:
