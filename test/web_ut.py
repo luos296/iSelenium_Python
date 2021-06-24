@@ -15,6 +15,7 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
+        print(config.get('driver', 'chrome_driver'))
         return config
 
     def tearDown(self):
