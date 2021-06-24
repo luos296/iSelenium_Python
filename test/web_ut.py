@@ -22,8 +22,6 @@ class ISelenium(unittest.TestCase):
 
     def setUp(self):
         config = self.get_config()
-        print("########################")
-        print(config.get('driver', 'chrome_driver'))
 
         # 控制是否采用无界面形式运行自动化测试
         try:
@@ -33,7 +31,8 @@ class ISelenium(unittest.TestCase):
             print('没有配置环境变量 using_headless, 按照有界面方式运行自动化测试')
 
         chrome_options = Options()
-        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument("window-size=1024,768")
         chrome_options.add_argument('--no-sandbox')
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
